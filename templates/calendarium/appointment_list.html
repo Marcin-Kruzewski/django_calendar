@@ -1,0 +1,14 @@
+{% load staticfiles %}
+
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'calendarium/style.css' %}" /> -->
+
+{% if appointment_list %}
+    <table>
+        <tr><td>Appointment time:</td><td>Registered</td><td>Host</td><td>Title</td></tr>
+    {% for appointment in appointment_list %}
+        <tr><td>{{ appointment.appointment_date }}</td><td>{{ appointment.appointment_user }}</td><td>{{ appointment.appointment_host }}</td><td>{{ appointment.appointment_text }}</td></tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>No appointments available.</p>
+{% endif %}
